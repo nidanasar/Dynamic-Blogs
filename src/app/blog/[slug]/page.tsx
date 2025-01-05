@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import { notFound } from 'next/navigation'
+import CommentSection from '@/components/comment-section'
 
 export default function BlogPost({ params }: { params: { slug: string } }) {
   const post = blogPosts.find((post) => post.slug === params.slug)
@@ -12,7 +13,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <article className="min-h-screen bg-green-100 py-12">
+    <article className="min-h-screen bg-green-100 py-12 text-black">
       <div className="container mx-auto px-4 max-w-3xl">
         <Link 
           href="/blog"
@@ -51,6 +52,9 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
             </div>
           ))}
         </div>
+      </div>
+      <div className="mt-12  border-1">
+        <CommentSection />
       </div>
     </article>
   )
